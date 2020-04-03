@@ -4,6 +4,7 @@
 
 Defined policy in file TrainingIoTPolicy.json to attach to user shikher.singh for accessing AWS resources
 Install AWS IOT SDK
+
 `npm install aws-iot-device-sdk`
 
 Starting and installing Cloud9 environment.
@@ -15,16 +16,17 @@ Download the AWS IoT Certificate Authority Public Certificate that will be used 
 `cd ~/environment wget -O root-CA.crt https://www.amazontrust.com/repository/AmazonRootCA1.pem`
 
 Defining policy IOTSubpolicy which authorize to Connect to your AWS IoT Core endpoint, to Publish and Subscribe to an IoT Topic, Receive messages from AWS IoT once subscribed and use the Discover API from Greengrass which will be used in code.
-Save AWS IOT endpoint in json file using below command.
-aws iot describe-endpoint --endpoint-type iot:Data-ATS > ~/environment/endpoint.json
+> Save AWS IOT endpoint in json file using below command.
+
+`aws iot describe-endpoint --endpoint-type iot:Data-ATS > ~/environment/endpoint.json`
 
 We have to create 10 things/Bans in AWS IOT core and download their certificate, private key and public key and put in each Ban directory. Instuction are given in Final report with screenshots.
 
 Making p2p connection among sensors by running below command in scripts.
 
-cd ~/environment/ban1 node ban2ban_connection.js 13
+`cd ~/environment/ban1 node ban2ban_connection.js 13`
 
-cd ~/environment/ban3 node ban2ban_connection.js 31
+`cd ~/environment/ban3 node ban2ban_connection.js 31`
 
 Here number 13 represents connection from ban1 to ban3.
 Similarly scripts can be run for other bans(Ban1, ban2, ban3, ban4, ban5, ban6)
@@ -38,7 +40,7 @@ We have to create a group called SCIoTGGGroup in which we have to register Ban 1
 
 Create a new user and group on cloud9
 
-sudo adduser --system ggc_user sudo groupadd --system ggc_group
+`sudo adduser --system ggc_user sudo groupadd --system ggc_group`
 
 Greengrass requires that the security on the instance be improved by enabling hardlink and softlink protection on the operating system echo 'fs.protected_hardlinks = 1' | sudo tee -a /etc/sysctl.d/00-defaults.conf echo 'fs.protected_symlinks = 1' | sudo tee -a /etc/sysctl.d/00-defaults.conf sudo sysctl --system
 
