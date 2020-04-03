@@ -4,13 +4,15 @@
 
 Defined policy in file TrainingIoTPolicy.json to attach to user shikher.singh for accessing AWS resources
 Install AWS IOT SDK
-npm install aws-iot-device-sdk
+`npm install aws-iot-device-sdk`
 
 Starting and installing Cloud9 environment.
-mkdir ~/environment/ban1; mkdir ~/environment/ban2; mkdir ~/environment/ban3 ; mkdir ~/environment/ban4 ; mkdir ~/environment/ban5 ; mkdir ~/environment/ban6 ; mkdir ~/environment/ban7 ; mkdir ~/environment/ban8
+
+`mkdir ~/environment/ban1; mkdir ~/environment/ban2; mkdir ~/environment/ban3 ; mkdir ~/environment/ban4 ; mkdir ~/environment/ban5 ; mkdir ~/environment/ban6 ; mkdir ~/environment/ban7 ; mkdir ~/environment/ban8`
 
 Download the AWS IoT Certificate Authority Public Certificate that will be used in the code
-cd ~/environment wget -O root-CA.crt https://www.amazontrust.com/repository/AmazonRootCA1.pem
+
+`cd ~/environment wget -O root-CA.crt https://www.amazontrust.com/repository/AmazonRootCA1.pem`
 
 Defining policy IOTSubpolicy which authorize to Connect to your AWS IoT Core endpoint, to Publish and Subscribe to an IoT Topic, Receive messages from AWS IoT once subscribed and use the Discover API from Greengrass which will be used in code.
 Save AWS IOT endpoint in json file using below command.
